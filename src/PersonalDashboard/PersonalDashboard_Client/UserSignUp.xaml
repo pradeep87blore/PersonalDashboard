@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonalDashboard_Client"
         mc:Ignorable="d"
-        Title="Sign Up" Height="254.26" Width="434.754" Initialized="Window_Initialized">
+        Title="Sign Up" Height="341.031" Width="434.754" Initialized="Window_Initialized">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="92*"/>
@@ -16,6 +16,9 @@
         <TextBox x:Name="textBox_userName" HorizontalAlignment="Left" Height="29" Margin="67.36,43,0,0" TextWrapping="Wrap" Text="Enter User Name" VerticalAlignment="Top" Width="245" Grid.Column="1"/>
         <TextBox x:Name="textBox_password" HorizontalAlignment="Left" Height="29" Margin="67.36,88,0,0" TextWrapping="Wrap" Text="Enter password" VerticalAlignment="Top" Width="245" Grid.Column="1"/>
         <Button x:Name="button_signup" Content="Sign Up" HorizontalAlignment="Left" Height="29" Margin="67.36,158,0,0" VerticalAlignment="Top" Width="119" Grid.Column="1" Click="Button_signup_Click"/>
+        <Label x:Name="label_MFA" Content="Enter MFA Code" HorizontalAlignment="Left" Height="28" Margin="31,218.157,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBox_MFA" HorizontalAlignment="Left" Height="29" Margin="67.36,218.157,0,0" TextWrapping="Wrap" Text="Enter MFA Code" VerticalAlignment="Top" Width="245" Grid.Column="1"/>
+        <Button x:Name="button_verify" Content="Verify" HorizontalAlignment="Left" Height="29" Margin="67.36,271.031,0,0" VerticalAlignment="Top" Width="119" Grid.Column="1" Click="Button_Verify"/>
 
     </Grid>
 </Window>

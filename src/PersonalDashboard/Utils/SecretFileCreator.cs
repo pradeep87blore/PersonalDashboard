@@ -47,11 +47,13 @@ namespace Utils
                     writer.AutoCompleteOnClose = true;
 
                     writer.WriteStartObject();
-                    writer.WritePropertyName("UserId");
+                    writer.WritePropertyName(SecretNames.USER_POOL_ID);
                     writer.WriteValue("Temp");
-                    writer.WritePropertyName("ClientId");
+                    writer.WritePropertyName(SecretNames.CLIENT_ID);
                     writer.WriteValue("Temp");
-                    writer.WritePropertyName("ClientSecret");
+                    writer.WritePropertyName(SecretNames.CLIENT_SECRET);
+                    writer.WriteValue("Temp");
+                    writer.WritePropertyName(SecretNames.AWS_REGION);
                     writer.WriteValue("Temp");
                     writer.WriteEndObject();
                 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserManager;
 
 namespace PersonalDashboard_Client
 {
@@ -51,19 +52,53 @@ namespace PersonalDashboard_Client
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-
+            EnableMFA(false);
         }
 
         private void Button_signup_Click(object sender, RoutedEventArgs e)
         {
-            if(bUsedForSignIn)
+            if(bUsedForSignIn == false) // Sign up process
             {
+                if(UserSignupHelper.SignupUser(textBox_userName.Text, textBox_password.Text))
+                {
+                    MessageBox.Show(Strings.USER_SIGN_UP_SUCCESS);
 
+                    EnableMFA(true);
+                }
+                else
+                {
+                    MessageBox.Show(Strings.USER_SIGN_UP_FAILED);
+                    EnableMFA(false);
+                }
             }
             else
             {
 
             }
+        }
+
+        private async void Button_Verify(object sender, RoutedEventArgs e)
+        {
+            if(UserSignupHelper.ValidateUser(textBox_userName.Text, textBox_MFA.Text))
+            {
+                MessageBox.Show(Strings.USER_VALIDATION_SUCCESS);
+
+                //string bucketsforuser = await UserSignupHelper.ListUserBuckets(textBox_userName.Text, textBox_password.Text);
+                //MessageBox.Show(bucketsforuser, "Buckets for the users");
+            }
+            else
+            {
+                MessageBox.Show(Strings.USER_VALIDATION_FAILED);
+            }
+        }
+
+        private void EnableMFA(bool bEnable)
+        {
+            button_verify.IsEnabled = bEnable;
+            textBox_MFA.IsEnabled = bEnable;
+
+            textBox_userName.IsReadOnly = bEnable;
+            textBox_password.IsReadOnly = bEnable;
         }
     }
 }
