@@ -11,6 +11,7 @@
 *.sln.docstates
 *.keys  # To prevent the keys file from getting shared
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
